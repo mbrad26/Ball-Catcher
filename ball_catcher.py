@@ -52,15 +52,17 @@ class Ball(Sprite):
         super().__init__()
         self.screen = screen
         self.image = pygame.image.load('images/sphere-04.png').convert()
-        self.image = pygame.transform.scale(self.image, (35, 35))
+        self.image = pygame.transform.scale(self.image, (50, 50))
+        self.image.set_colorkey(bg_color)
         # self.image = pygame.Surface((25, 25))
         # self.image = pygame.draw.circle(self.screen, BLUE, (0, 0), 14)
         # self.image.fill(BLUE)
         self.rect = self.image.get_rect()
+        # pygame.draw.circle(self.image, BLUE, self.rect.center, 50)
         self.rect.x = random.randrange(WIDTH - self.rect.width)
-        self.rect.y = random.randrange(-100, - self.rect.height)
+        self.rect.y = random.randrange(-100, -self.rect.height)
         self.speedy = float(self.rect.centery)
-        self.speed_y = 0.3
+        self.speed_y = 0.2
 
     def update(self):
         self.speedy += self.speed_y
